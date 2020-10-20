@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from henri.home.models import Experience
 
 
 def home(request):
-    return render(request, 'home.html')
+    exps = Experience.objects.all()
+    context = {'exps': exps}
+    return render(request, 'home.html', context)
