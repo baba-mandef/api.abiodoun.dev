@@ -368,142 +368,27 @@
 					<div class="row">
 						<div class="col-md-12">
 				         <div class="timeline-centered">
+                             {% for exp in exps %}
 					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
 					            <div class="timeline-entry-inner">
 
-					               <div class="timeline-icon color-1">
+					               <div class="{{exp.color.class_name}}">
 					                  <i class="icon-pen2"></i>
 					               </div>
 
 					               <div class="timeline-label">
-					                  <h2><a href="#">Développeur backend</a> <span>2018</span></h2>
-					                  <p>J'ai commencé la spécialisation en développement web backend en 2018, j'ai eu à travailler sur de tout petits projets au début.</p>
+					                  <h2><a href="#">{{ exp.title}}</a> <span>{{ exp.date|date:"M Y" }}</span></h2>
+					                  <p>{{ exp.description }}</p>
 					               </div>
 					            </div>
 					         </article>
-
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Développeur web backend chez Tiklight</a> <span>Novembre 2019</span></h2>
-					                  <p>Tiklight est une start-up béninoise qui offre des services en informatique et en éducation.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-3">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="https://github.com/Covid-Africa/covid-africa-api">Covid-Africa API</a> <span>2020</span></h2>
-					                  <p>Covid-Africa API est une API qui renvoie les statistiques par pays du covid19 en Afrique.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-4">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="https://t.me/yeswecode">CEO WeLearn</a> <span>2020</span></h2>
-					                  <p>WeLearn est une petite start-up d'elearning qui offre des formations dans le domaine de l'informatique et du développement.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-5">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="https://bouquinez.com">Dévéloppeur Web backend chez bouquinez</a> <span>Septembre-Octobre 2020</span></h2>
-					                  <p>Bouquinez est une plateforme d'E-commerce qui propose notamment des livres et des fournitures scolaire comme produits.</p>
-					               </div>
-					            </div>
-							 </article>
-
-							 <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="https://loughfeel.com/">Designer chez Loughfeel</a> <span>Juillet 2020</span></h2>
-					                  <p>Loughfeel est un site d'E-commerce français qui vends des lits pour bébés.</p>
-					               </div>
-					            </div>
-					         </article>
-
-                            <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-4">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="https://t.me/yeswecode">Développeur chez Olanike Children Foundation</a> <span>Septembre 2020</span></h2>
-					                  <p>Olanike Children Foundation est une association de charité béninoise qui à pour but d'aider les enfant démunis.</p>
-					               </div>
-					            </div>
-					         </article>
+                             {% endfor %}
 					      </div>
 					   </div>
 				   </div>
 				</div>
 			</section>
 
-			<section class="colorlib-work" data-section="work">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Travaux Récents</span>
-							<h2 class="colorlib-heading animate-box">Gallerie</h2>
-						</div>
-					</div>
-					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-						<!-- <div class="col-md-12">
-							<p class="work-menu"><span><a href="#" class="active">Graphic Design</a></span> <span><a href="#">Web Design</a></span> <span><a href="#">Software</a></span> <span><a href="#">Apps</a></span></p>
-						</div> -->
-					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/2.png);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Banner</a></h3>
-										<span>WeLearn</span>
-										<!-- <p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p> -->
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/3.png);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Bouquinez</a></h3>
-										<span>Site web</span>
-										<!-- <p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p> -->
-									</div>
-								</div>
-							</div>
-						</div>
 
 
 			<section class="colorlib-blog" data-section="blog">
