@@ -1,3 +1,5 @@
 from django.contrib import admin
+from henri.home.models import Experience, Color
 
-# Register your models here.
+admin.site.register(Experience)
+admin.site.register(Color)
