@@ -1,0 +1,95 @@
+{% extends 'layouts/blog_base.html' %}
+{% load static %}
+
+{% block nav %}
+
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+			<div class="text-center">
+				<div class="author-img" style="background-image: url({%static "images/1.jpg"%});"></div>
+				<h1 id="colorlib-logo"><a href="base.html">Salaou-Deen Paraïso</a></h1>
+				<span class="position"><a href="#">Développeur</a> au Bénin</span>
+			</div>
+			<nav id="colorlib-main-menu" role="navigation" class="navbar">
+				<div id="navbar" class="collapse">
+
+                        <h3 class="text-center">Categories</h3>
+				</div>
+			</nav>
+
+			 <div class="colorlib-footer">
+
+                        {% for cat in cats %}
+						<ul><li><a href="#"style="color: black">{{ cat.title }}</a></li></ul>
+                        {% endfor %}
+                        <ul>
+						<a href="/">Retour à l'accueil</a>
+                </ul>
+				<ul>
+					<li><a href="https://github.com/shadowcompiler"><i style="color: #000000" class="icon-github"></i></a></li>
+					<li><a href="https://twitter.com/shadow_compiler"><i style="color: black" class="icon-social-twitter"></i></a></li>
+					<li><a href="https://web.facebook.com/0000002sdp/"><i style="color: black" class="icon-social-facebook"></i></a></li>
+				</ul>
+                 <p>Développé avec amour <i class="icon-heart"></i><br> avec <a href="https://www.djangoproject.com/">Django</a> et <a href="https://www.python.org/">python</a></p>
+			</div>
+
+		</aside>
+
+{% endblock %}
+
+{% block main %}
+<div id="colorlib-main">
+			<section id="colorlib-hero" class="js-fullheight" data-section="home">
+				<div class="flexslider js-fullheight">
+					<ul class="slides">
+				   	<li style="background-image: url({%static "images/ban.jpg" %});">
+				   		<div class="overlay"></div>
+				   		<div class="container-fluid">
+				   			<div class="row">
+					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+					   				<div class="slider-text-inner js-fullheight">
+					   					<div class="desc">
+						   					<h1 style="color: white"><br>Mon blog</h1>
+
+											</div>
+					   				</div>
+					   			</div>
+					   		</div>
+				   		</div>
+				   	</li>
+				  	</ul>
+			  	</div>
+			</section>
+
+
+			<section class="colorlib-blog" data-section="blog">
+				<div class="colorlib-narrow-content">
+
+					<div class="row">
+                        {% for post in posts %}
+                            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeInLeft">
+							<div class="blog-entry">
+								<a href="blog/post/{{ last.slug }}" class="blog-img"><img src="{{post.banner.url}}" class="img-responsive" alt="Henri Paraiso"></a>
+								<div class="desc">
+									<span><small>{{ post.created_at|date:'d'}} {{ post.created_at|date:'M'}} {{ post.created_at|date:'Y'}}</small> | <small> {{ post.category.title}}</small> | <small> <i class="icon-bubble3"></i> 4</small></span>
+									<h3><a href="blog/post/{{ last.slug }}">{{ post.title}}</a></h3>
+									<p>{{ post.body|truncatewords:'30'}}</p>
+								</div>
+							</div>
+						</div>
+                            {% empty %}
+                            <hr>
+                            <h1>Aucun article disponible.</h1>
+                        {% endfor %}
+
+
+
+					</div>
+
+				</div>
+			</section>
+
+
+		</div>
+
+{% endblock %}
