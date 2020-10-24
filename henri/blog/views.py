@@ -23,7 +23,7 @@ def details(request, slug):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-    comments = Comment.objects.filter(id=post.id)
+    comments = Comment.objects.filter(post=post.id)
     context = {'post': post, 'cats': cats, 'comments': comments, 'form': form}
     return render(request, 'post-details.html', context)
 
