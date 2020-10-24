@@ -1,7 +1,8 @@
 {% load static %}
 <!DOCTYPE HTML>
 <html>
-	<head>
+
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Henri Paraiso</title>
@@ -10,12 +11,12 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
@@ -26,7 +27,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{%static "css/animate.css" %}">
 	<!-- Icomoon Icon Fonts-->
@@ -50,50 +51,58 @@
 	<script src="{%static "js/respond.min.js%"%}"></script>
 	<![endif]-->
 
-	</head>
-	<body>
+</head>
+
+<body>
 
 	<div id="colorlib-page">
 		<div class="container-wrap">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<div class="text-center">
-				<div class="author-img" style="background-image: url({%static "images/1.jpg"%});"></div>
-				<h1 id="colorlib-logo"><a href="base.html">Salaou-Deen Paraïso</a></h1>
-				<span class="position"><a href="#">Développeur</a> au Bénin</span>
-			</div>
-			<nav id="colorlib-main-menu" role="navigation" class="navbar">
-				<div id="navbar" class="collapse">
-					<ul>
-						<li class="active"><a href="#" data-nav-section="home">Accueil</a></li>
-						<li><a href="#" data-nav-section="about">A propos</a></li>
-						<li><a href="#" data-nav-section="services">Services</a></li>
-						<li><a href="#" data-nav-section="skills">Compétences</a></li>
-						<li><a href="#" data-nav-section="education">Education</a></li>
-						<li><a href="#" data-nav-section="experience">Experience</a></li>
-                        <li><a href="#" data-nav-section="blog">Blog</a></li>
-						<li><a href="#" data-nav-section="contact">Contact</a></li>
-
-					</ul>
-                   
+			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
+				aria-expanded="false" aria-controls="navbar"><i></i></a>
+			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+				<div class="text-center">
+					<div class="author-img" style="background-image: url({%static "images/1.jpg"%});"></div>
+					<h1 id="colorlib-logo"><a href="base.html">Salaou-Deen Paraïso</a></h1>
+					<span class="position"><a href="#">Développeur</a> au Bénin</span>
 				</div>
-			</nav>
+				<nav id="colorlib-main-menu" role="navigation" class="navbar">
+					<div id="navbar" class="collapse">
+						<ul>
+							<li class="active"><a href="#" data-nav-section="home">Accueil</a></li>
+							<li><a href="#" data-nav-section="about">A propos</a></li>
+							<li><a href="#" data-nav-section="services">Services</a></li>
+							<li><a href="#" data-nav-section="skills">Compétences</a></li>
+							<li><a href="#" data-nav-section="education">Education</a></li>
+							<li><a href="#" data-nav-section="experience">Experience</a></li>
+							<li><a href="#" data-nav-section="blog">Blog</a></li>
+							<li><a href="#" data-nav-section="contact">Contact</a></li>
 
-			 <div class="colorlib-footer">
-				
-				<ul>
-					<li><a href="https://github.com/shadowcompiler"><i style="color: black" class="icon-github"></i></a></li>
-					<li><a href="https://twitter.com/shadow_compiler"><i style="color: black" class="icon-social-twitter"></i></a></li>
-					<li><a href="https://web.facebook.com/0000002sdp/"><i style="color: black" class="icon-social-facebook"></i></a></li>
-				</ul>
-                 <p>Développé avec amour <i class="icon-heart"></i><br> avec <a href="https://www.djangoproject.com/">Django</a> et <a href="https://www.python.org/">python</a></p>
-			</div>
+						</ul>
 
-		</aside>
-        {% block main %}
+					</div>
+				</nav>
 
-		{% endblock %}<!-- end:colorlib-main -->
-	</div><!-- end:container-wrap -->
+				<div class="colorlib-footer">
+
+					<ul>
+						<li><a href="https://github.com/shadowcompiler"><i style="color: black"
+									class="icon-github"></i></a></li>
+						<li><a href="https://twitter.com/shadow_compiler"><i style="color: black"
+									class="icon-social-twitter"></i></a></li>
+						<li><a href="https://web.facebook.com/0000002sdp/"><i style="color: black"
+									class="icon-social-facebook"></i></a></li>
+					</ul>
+					<p>Développé avec amour <i class="icon-heart"></i><br> avec <a
+							href="https://www.djangoproject.com/">Django</a> et <a
+							href="https://www.python.org/">python</a></p>
+				</div>
+
+			</aside>
+			{% block main %}
+
+			{% endblock %}
+			<!-- end:colorlib-main -->
+		</div><!-- end:container-wrap -->
 	</div><!-- end:colorlib-page -->
 
 
@@ -111,11 +120,11 @@
 	<script src="{%static "js/owl.carousel.min.js"%}"></script>
 	<!-- Counters -->
 	<script src="{%static "js/jquery.countTo.js"%}"></script>
-	
-	
+
+
 	<!-- MAIN JS -->
 	<script src="{%static "js/main.js"%}"></script>
 
-	</body>
-</html>
+</body>
 
+</html>
