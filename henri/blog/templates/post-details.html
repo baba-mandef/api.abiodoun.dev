@@ -1,0 +1,129 @@
+{% extends 'layouts/blog_base.html' %}
+{% load static %}
+{% load humanize %}
+{% block nav %}
+
+<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
+	aria-expanded="false" aria-controls="navbar"><i></i></a>
+<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+	<div class="text-center">
+		<div class="author-img" style="background-image: url({%static "images/1.jpg"%});"></div>
+		<h1 id="colorlib-logo"><a href="base.html">Salaou-Deen Paraïso</a></h1>
+		<span class="position"><a href="#">Développeur</a> au Bénin</span>
+	</div>
+
+
+	<div class="colorlib-footer">
+		{% for cat in cats %}
+		<ul>
+			<li><a href="/blog/category/{{ cat.title }}" style="color: black"><i class="icon-folder"></i>
+					{{ cat.title }}</a></li>
+		</ul>
+		{% endfor %}
+		<ul>
+			<a href="/">Retour à l'accueil</a>
+		</ul>
+		<ul>
+			<a href="/blog">Retour aux articles</a>
+		</ul>
+		<ul>
+			<li><a href="https://github.com/shadowcompiler"><i style="color: #000000" class="icon-github"></i></a></li>
+			<li><a href="https://twitter.com/shadow_compiler"><i style="color: black"
+						class="icon-social-twitter"></i></a></li>
+			<li><a href="https://web.facebook.com/0000002sdp/"><i style="color: black"
+						class="icon-social-facebook"></i></a></li>
+		</ul>
+		<p>Développé avec amour <i class="icon-heart"></i><br> avec <a href="https://www.djangoproject.com/">Django</a>
+			et <a href="https://www.python.org/">python</a></p>
+	</div>
+
+</aside>
+
+{% endblock %}
+
+{% block main %}
+<div id="colorlib-main">
+	<section id="colorlib-hero" class="js-fullheight" data-section="home">
+		<div class="flexslider js-fullheight">
+			<ul class="slides">
+				<li style="background-image: url('{{post.banner.url}}');">
+					<div class="overlay"></div>
+					<div class="container-fluid">
+						<div class="row">
+							<div
+								class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+								<div class="slider-text-inner js-fullheight">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+
+	<section class="colorlib-about" data-section="about">
+		<div class="colorlib-narrow-content">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+						<div class="col-md-12">
+							<div class="about-desc">
+								<h2 class="colorlib-heading">{{ post.title}}</h2>
+								{{ post.post|safe }}
+								<!--important-->
+								<hr>
+
+
+
+								<div class="row">
+									<div class="col-sm-12">
+										<small> <span class="icon-bubble3"></span> {{ comments|length }} commentaire(s)
+											| <span class="icon-eye"></span> {{ post.view }} lecture(s) | <span
+												class="icon-calender"></span> publié le {{ post.created_at|date }} | <a
+												href="/blog/category/{{ post.category }}"><span
+													class="icon-folder"></span>{{ post.category }}</a></small>
+										<hr>
+									</div><!-- /col-sm-12 -->
+								</div><!-- /row -->
+
+
+								<div class="row">
+									{% for comment in comments %}
+									<div class="col-md-12 col-sm-3">
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<strong>{{ comment.author_name }}</strong> <span
+													class="text-muted">{{ comment.created_at|naturaltime}}</span>
+											</div>
+											<div class="panel-body">
+												<p>{{ comment.body}}</p>
+											</div><!-- /panel-body -->
+										</div><!-- /panel panel-default -->
+									</div><!-- /col-->
+									{% empty %}
+									<h3>Aucun commentaire</h3>
+									{% endfor %}
+								</div><!-- /row -->
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+</div>
+</div>
+</section>
+
+
+</div>
+
+{% endblock %}
