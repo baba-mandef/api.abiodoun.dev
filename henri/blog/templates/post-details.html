@@ -1,6 +1,7 @@
 {% extends 'layouts/blog_base.html' %}
 {% load static %}
 {% load humanize %}
+{% load crispy_forms_tags %}
 {% block nav %}
 
 <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
@@ -105,9 +106,39 @@
 									{% empty %}
 									<h3>Aucun commentaire</h3>
 									{% endfor %}
+                                <hr>
+                                <h3>Ajouter un commentaire</h3>
 								</div><!-- /row -->
 
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                {{ form.author_name|as_crispy_field}}
+                                            </div>
+                                        </div>
+                                            <div class="col-md-8">
+                                            <div class="form-group">
+                                                {{ form.author_mail|as_crispy_field}}
+                                            </div>
+                                        </div>
+                                            <div class="col-md-8">
+                                            <div class="form-group">
+                                                {{ form.body|as_crispy_field}}
+                                            </div>
+                                        </div>
 
+                                            <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="submit" value="Commenter" class="btn btn-primary">
+                                            </div>
+                                        </div>
+
+                                        </form>
+                                    </div>
+                                </div>
 
 
 							</div>
