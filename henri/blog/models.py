@@ -25,6 +25,15 @@ class Post(models.Model):
         return self.title
 
 
+class ViewCount(models.Model):
+    id = models.AutoField(primary_key=True)
+    ip_adress = models.GenericIPAddressField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}: {}'.format(self.ip_adress, self.post)
+
+
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)
     created_at = models.DateTimeField(auto_now_add=True)
