@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from henri.blog.models import (Post, Category, Comment)
+from henri.blog.models import (Post, Category, Comment, ViewCount)
 from henri.blog.forms import CommentForm
 
 
@@ -14,8 +14,27 @@ def posts(request):
 def details(request, slug):
     post = Post.objects.get(slug=slug)
     cats = Category.objects.all()
-    post.view += 1
-    post.save()
+
+    def visitor_ip_address(request):
+
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+    ip = visitor_ip_address(request)  # get visitor ip
+    post_ip = ViewCount.objects.filter(post=post, ip_adress=ip)  # get counter for user ip and post
+
+    if post_ip:
+        post.view = post.view
+        post.save()
+    elif not post_ip:
+        new_ip = ViewCount(post=post, ip_adress=ip)
+        new_ip.save()
+        post.view += 1
+        post.save()
     form = CommentForm
     if request.method == 'POST':
         form = CommentForm(data=request.POST)
