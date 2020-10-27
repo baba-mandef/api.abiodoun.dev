@@ -4,7 +4,7 @@ from henri.blog.forms import CommentForm
 
 
 def posts(request):
-    all_posts = Post.objects.all
+    all_posts = Post.objects.filter(published=True)
     cats = Category.objects.all()
 
     context = {'posts': all_posts, 'cats': cats}
@@ -48,7 +48,7 @@ def details(request, slug):
 
 
 def categories(request, category):
-    posts = Post.objects.filter(category__title=category)
+    posts = Post.objects.filter(category__title=category, published=True)
     cats = Category.objects.all()
     cat_title = category
 
