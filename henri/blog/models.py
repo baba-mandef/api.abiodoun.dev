@@ -20,7 +20,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     published = models.BooleanField(default=True)
-    view = models.IntegerField(null=True)
+    view = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.title
