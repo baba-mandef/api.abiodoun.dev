@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block main %}
 <div id="colorlib-main">
 	<section id="colorlib-hero" class="js-fullheight" data-section="home">
@@ -235,35 +235,18 @@
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 					<div class="progress-wrap">
-						<h3>Python 3</h3>
-						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-								aria-valuemax="100" style="width:55%">
-								<span>55%</span>
-							</div>
-						</div>
+						<li><h3>Python 3</h3></li>
 					</div>
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<h3>Django </h3>
-						<div class="progress">
-							<div class="progress-bar color-2" role="progressbar" aria-valuenow="48" aria-valuemin="0"
-								aria-valuemax="100" style="width:48%">
-								<span>48%</span>
-							</div>
-						</div>
+						<li><h3>Django </h3></li>
+
 					</div>
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 					<div class="progress-wrap">
-						<h3>HTML5/CSS3</h3>
-						<div class="progress">
-							<div class="progress-bar color-3" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-								aria-valuemax="100" style="width:80%">
-								<span>80%</span>
-							</div>
-						</div>
+						<li><h3>HTML5/CSS3</h3></li>
 					</div>
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
@@ -271,52 +254,28 @@
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 					<div class="progress-wrap">
-						<h3>Bootstrap</h3>
-						<div class="progress">
-							<div class="progress-bar color-5" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-								aria-valuemax="100" style="width:60%">
-								<span>60%</span>
-							</div>
-						</div>
+						<li><h3>Bootstrap</h3></li>
 					</div>
 				</div>
 
 
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<h3>PHP</h3>
-						<div class="progress">
-							<div class="progress-bar color-3" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-								aria-valuemax="100" style="width:60%">
-								<span>60%</span>
-							</div>
-						</div>
+						<li><h3>PHP</h3></li>
 					</div>
 				</div>
 
 
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<h3>FIGMA, Adobe XD</h3>
-						<div class="progress">
-							<div class="progress-bar color-2" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-								aria-valuemax="100" style="width:70%">
-								<span>70%</span>
-							</div>
-						</div>
+						<li><h3>FIGMA, Adobe XD</h3></li>
 					</div>
 				</div>
 
 
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<h3>Linux</h3>
-						<div class="progress">
-							<div class="progress-bar color-4" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-								aria-valuemax="100" style="width:75%">
-								<span>75%</span>
-							</div>
-						</div>
+						<li><h3>Linux</h3></li>
 					</div>
 
 
@@ -450,7 +409,7 @@
 
 				<div class="row">
 					<div class="col-md-12 animate-box">
-						<p><a href="blog" class="btn btn-primary btn-lg btn-load-more">Voir tout les article <i
+						<p><a href="blog" class="btn btn-primary btn-lg btn-load-more">Voir tous les articles <i
 									class="icon-reload"></i></a></p>
 					</div>
 				</div>
@@ -462,7 +421,7 @@
 		<div class="colorlib-narrow-content">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-					<span class="heading-meta">Restez branché</span>
+					<span class="heading-meta">Restez à l'écoute</span>
 					<h2 class="colorlib-heading">Contact</h2>
 				</div>
 			</div>
@@ -473,7 +432,7 @@
 							<i class="icon-globe-outline"></i>
 						</div>
 						<div class="colorlib-text">
-							<p><a href="#">henriparaiso.cf</a></p>
+							<p><a href="#">henri-dev.tech</a></p>
 						</div>
 					</div>
 
@@ -491,7 +450,7 @@
 							<i class="icon-phone"></i>
 						</div>
 						<div class="colorlib-text">
-							<p><a href="tel://">+229 51 36 21 91</a></p>
+							<p><a href="tel://">+229 66 17 39 30</a></p>
 						</div>
 					</div>
 				</div>
@@ -499,19 +458,16 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
 							data-animate-effect="fadeInRight">
-							<form action="">
+							<form  method='POST'>
+                                {% csrf_token %}
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Nom">
+                                    {{form.author_mail|as_crispy_field}}
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Email">
+                                    {{form.mail_subject|as_crispy_field}}
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Objet">
-								</div>
-								<div class="form-group">
-									<textarea name="" id="message" cols="30" rows="7" class="form-control"
-										placeholder="Message"></textarea>
+                                    {{form.mail_content|as_crispy_field}}
 								</div>
 								<div class="form-group">
 									<input type="submit" class="btn btn-primary btn-send-message" value="Envoyez">
