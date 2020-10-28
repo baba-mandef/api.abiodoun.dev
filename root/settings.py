@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'henri.blog',
     'cloudinary',
     'cloudinary_storage',
-    'crispy_forms'
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +139,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('HOST_MAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASSWORD')
