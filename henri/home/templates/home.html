@@ -188,7 +188,7 @@
 
 
 
-	<div id="colorlib-counter" class="colorlib-counters" style="background-image: url({%static  "images/cat.jpg"%});"
+	<div id="colorlib-counter" class="colorlib-counters" style="background-image: url({%static "images/cat.jpg"%});"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="colorlib-narrow-content">
@@ -235,18 +235,24 @@
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 					<div class="progress-wrap">
-						<li><h3>Python 3</h3></li>
+						<li>
+							<h3>Python 3</h3>
+						</li>
 					</div>
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<li><h3>Django </h3></li>
+						<li>
+							<h3>Django </h3>
+						</li>
 
 					</div>
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 					<div class="progress-wrap">
-						<li><h3>HTML5/CSS3</h3></li>
+						<li>
+							<h3>HTML5/CSS3</h3>
+						</li>
 					</div>
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
@@ -254,28 +260,36 @@
 				</div>
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 					<div class="progress-wrap">
-						<li><h3>Bootstrap</h3></li>
+						<li>
+							<h3>Bootstrap</h3>
+						</li>
 					</div>
 				</div>
 
 
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<li><h3>PHP</h3></li>
+						<li>
+							<h3>PHP</h3>
+						</li>
 					</div>
 				</div>
 
 
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<li><h3>FIGMA, Adobe XD</h3></li>
+						<li>
+							<h3>FIGMA, Adobe XD</h3>
+						</li>
 					</div>
 				</div>
 
 
 				<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
 					<div class="progress-wrap">
-						<li><h3>Linux</h3></li>
+						<li>
+							<h3>Linux</h3>
+						</li>
 					</div>
 
 
@@ -380,41 +394,36 @@
 		</div>
 	</section>
 
-
-
 	<section class="colorlib-blog" data-section="blog">
 		<div class="colorlib-narrow-content">
+
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 					<span class="heading-meta">Mon blog</span>
 					<h2 class="colorlib-heading">Articles récents</h2>
 				</div>
-			</div>
-			<div class="row">
 				{% for last in lasts %}
 				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeInLeft">
 					<div class="blog-entry">
-						<a href="blog/post/{{ last.slug }}" class="blog-img"><img src="{{last.banner.url}}"
+						<a href="/blog/post/{{ last.slug }}" class="blog-img"><img src="{{last.banner.url}}"
 								class="img-responsive" alt="Henri Paraiso"></a>
 						<div class="desc">
 							<span><small>{{ last.created_at|date:'d'}} {{ last.created_at|date:'M'}}
 									{{ last.created_at|date:'Y'}}</small> | <small> {{ last.category.title}}</small> |
 								<small> <i class="icon-eye"></i> {{ last.view }}</small></span>
-							<h3><a href="blog/post/{{ last.slug }}">{{ last.title}}</a></h3>
+							<h3><a href="/blog/post/{{ last.slug }}">{{ last.title}}</a></h3>
 							<p>{{ last.body|truncatewords:'30'}}</p>
 						</div>
 					</div>
 				</div>
+
 				{% endfor %}
-
-				<div class="row">
-					<div class="col-md-12 animate-box">
-						<p><a href="blog" class="btn btn-primary btn-lg btn-load-more">Voir tous les articles <i
-									class="icon-reload"></i></a></p>
-					</div>
-				</div>
-
 			</div>
+			<div class="col-md-12 animate-box">
+				<a href="blog" class="btn btn-primary btn-lg btn-load-more">Voir tous les articles
+					<i>class="icon-reload"></i></a>
+			</div>
+		</div>
 	</section>
 
 	<section class="colorlib-contact" data-section="contact">
@@ -458,16 +467,16 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
 							data-animate-effect="fadeInRight">
-							<form  method='POST'>
-                                {% csrf_token %}
+							<form method='POST'>
+								{% csrf_token %}
 								<div class="form-group">
-                                    {{form.author_mail|as_crispy_field}}
+									{{form.author_mail|as_crispy_field}}
 								</div>
 								<div class="form-group">
-                                    {{form.mail_subject|as_crispy_field}}
+									{{form.mail_subject|as_crispy_field}}
 								</div>
 								<div class="form-group">
-                                    {{form.mail_content|as_crispy_field}}
+									{{form.mail_content|as_crispy_field}}
 								</div>
 								<div class="form-group">
 									<input type="submit" class="btn btn-primary btn-send-message" value="Envoyez">
