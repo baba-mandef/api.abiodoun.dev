@@ -45,10 +45,11 @@ def details(request, slug):
     post_ip = ViewCount.objects.filter(post=post, ip_adress=ip)  # get view object for user_ip and post
 
     if post_ip:
-        # check if the user has already read this post
+        # check if the visitor has already read this post
         post.view = post.view
         post.save()
-    elif not post_ip:
+    elif not post_ip and post.published:
+        # check if the visitor has not read this post and if post is already published
         # add new view for the post
         new_ip = ViewCount(post=post, ip_adress=ip)
         new_ip.save()
