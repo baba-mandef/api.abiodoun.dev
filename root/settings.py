@@ -145,3 +145,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('HOST_MAIL')
 EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASSWORD')
+token  = os.environ.get('BOT')
