@@ -1,21 +1,13 @@
 from django.shortcuts import render
 from henri.blog.models import (Post, Category, Comment, ViewCount)
 from henri.blog.forms import CommentForm
+from henri.utils.get_ip import visitor_ip_address
+from telegram.ext import (Updater, CallbackContext)
+from root.settings import token
+import os
 
-
-def visitor_ip_address(request):
-    """
-    Get and return user ip address
-    :param request:
-    :return ip:
-    """
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+update = Updater(token, use_context=True)
+job = update.job_queue
 
 
 def posts(request):
@@ -43,6 +35,9 @@ def details(request, slug):
 
     ip = visitor_ip_address(request)  # get visitor ip
     post_ip = ViewCount.objects.filter(post=post, ip_adress=ip)  # get view object for user_ip and post
+    def callback_view(context: CallbackContext):
+        context.bot.send_message(chat_id='1146691955',
+                                text='{} as read {} now'.format(ip, post.title))
 
     if post_ip:
         # check if the visitor has already read this post
@@ -54,7 +49,11 @@ def details(request, slug):
         new_ip = ViewCount(post=post, ip_adress=ip)
         new_ip.save()
         post.view += 1
+        job.run_once(callback_view, 1)
+        update.start_polling()
         post.save()
+        update.stop()
+
 
     form = CommentForm
     if request.method == 'POST':
