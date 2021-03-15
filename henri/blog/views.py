@@ -3,7 +3,7 @@ from henri.blog.models import (Post, Category, Comment, ViewCount)
 from henri.blog.forms import CommentForm
 from henri.utils.get_ip import visitor_ip_address
 from telegram.ext import (Updater, CallbackContext)
-from root.settings import token
+from root.settings import token, chat
 import os
 
 update = Updater(token, use_context=True)
@@ -36,13 +36,23 @@ def details(request, slug):
     ip = visitor_ip_address(request)  # get visitor ip
     post_ip = ViewCount.objects.filter(post=post, ip_adress=ip)  # get view object for user_ip and post
     def callback_view(context: CallbackContext):
-        context.bot.send_message(chat_id='1146691955',
-                                text='{} as read {} now'.format(ip, post.title))
+        context.bot.send_message(chat_id=chat,
+                                text=' Reader ip : {}\n Post title : {} \n First time : True'.format(ip, post.title))
+    def callback_review(context: CallbackContext):
+        context.bot.send_message(chat_id=chat,
+                                text=' Reader ip : {}\n Post title : {} \n First time : False'.format(ip, post.title))
+
+    def callback_comment(context: CallbackContext):
+        context.bot.send_message(chat_id=chat,
+                                text=' Comment author ip : {} \n\n Comment body : \n {} \n\n Post title : {}'.format(ip, comment.body, post.title))
 
     if post_ip:
         # check if the visitor has already read this post
         post.view = post.view
+        job.run_once(callback_review, 1)
+
         post.save()
+
     elif not post_ip and post.published:
         # check if the visitor has not read this post and if post is already published
         # add new view for the post
@@ -50,9 +60,9 @@ def details(request, slug):
         new_ip.save()
         post.view += 1
         job.run_once(callback_view, 1)
-        update.start_polling()
+
         post.save()
-        update.stop()
+
 
 
     form = CommentForm
@@ -62,10 +72,12 @@ def details(request, slug):
             # check form validity and save comment
             comment = form.save(commit=False)
             comment.post = post
+            job.run_once(callback_comment, 1)
             comment.save()
 
     comments = Comment.objects.filter(post=post.id)  # get all comment for the post
     context = {'post': post, 'cats': cats, 'comments': comments, 'form': form}
+    update.start_polling()
     return render(request, 'post-details.html', context)
 
 

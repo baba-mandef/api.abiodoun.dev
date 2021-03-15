@@ -40,7 +40,7 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     body = models.TextField()
     author_name = models.CharField(max_length=50)
-    author_mail = models.CharField(max_length=50)
+    author_mail = models.EmailField(max_length=50)
     author_pic = models.ImageField(default='comments/d.png')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
