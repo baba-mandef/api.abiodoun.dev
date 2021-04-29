@@ -2,6 +2,18 @@
 {% load static %}
 {% load humanize %}
 {% load crispy_forms_tags %}
+{% block meta %}
+<!-- Facebook and Twitter integration -->
+<meta property="og:title" content="{{post.title}}" />
+<meta property="og:image" content="{{post.banner}}" />
+<meta property="og:url" content="henri-dev.tech" />
+<meta property="description" content="{{post.post|safe}}" />
+<meta property="og:site_name" content="Salaou-Deen Paraiso"/>
+<meta name="twitter:title" content="{{post.title}}" />
+<meta name="twitter:image" content="{post.banner}" />
+<meta name="twitter:url" content="henri-dev.tech" />
+<meta name="twitter:card" content="summary_large_image">
+{% end block %}
 {% block nav %}
 
 <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"

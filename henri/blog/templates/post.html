@@ -1,8 +1,20 @@
 {% extends 'layouts/blog_base.html' %}
 {% load static %}
 
-{% block nav %}
+{ % block meta %}
+<!-- Facebook and Twitter integration -->
+<meta property="og:title" content="Blog" />
+<meta property="og:image" content="{%static "images/ban.jpg"%}" />
+<meta property="og:url" content="henri-dev.tech" />
+<meta property="description" content="Tous les articles" />
+<meta property="og:site_name" content="Salaou-Deen Paraiso"/>
+<meta name="twitter:title" content="Blog" />
+<meta name="twitter:image" content="{%static "images/ban.jpg"%}" />
+<meta name="twitter:url" content="henri-dev.tech" />
+<meta name="twitter:card" content="summary_large_image">
+{% end block %}
 
+{% block nav %}
 <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
 	aria-expanded="false" aria-controls="navbar"><i></i></a>
 <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
