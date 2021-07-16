@@ -4,7 +4,7 @@ from henri.blog.forms import CommentForm
 from henri.utils.get_ip import visitor_ip_address
 from telegram.ext import (Updater, CallbackContext)
 from root.settings import token, chat
-import os
+from henri.utils.check_comment import checking
 
 update = Updater(token, use_context=True)
 job = update.job_queue
@@ -71,9 +71,15 @@ def details(request, slug):
         if form.is_valid():
             # check form validity and save comment
             comment = form.save(commit=False)
-            comment.post = post
-            job.run_once(callback_comment, 1)
-            comment.save()
+            body = comment.body
+            check=checking(body)
+            if check:
+                form.save(commit=False)
+            else:
+                comment = form.save(commit=False)
+                comment.post = post
+                job.run_once(callback_comment, 1)
+                comment.save()
 
     comments = Comment.objects.filter(post=post.id)  # get all comment for the post
     context = {'post': post, 'cats': cats, 'comments': comments, 'form': form}
