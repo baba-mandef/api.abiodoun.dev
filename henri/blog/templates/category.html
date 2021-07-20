@@ -91,7 +91,7 @@
 							<span><small>{{ post.created_at|date:'d'}} {{ post.created_at|date:'M'}}
 									{{ post.created_at|date:'Y'}}</small> | <small> {{ post.category.title}}</small> |
 								<small> <i class="icon-eye"></i> {{ post.view }}</small></span>
-							/<h3><a href="/blog/post/{{ post.slug }}">{{ post.title}}</a></h3>
+							<h3><a href="/blog/post/{{ post.slug }}">{{ post.title}}</a></h3>
 							<p>{{ post.body|truncatewords:'30'}}</p>
 						</div>
 					</div>
