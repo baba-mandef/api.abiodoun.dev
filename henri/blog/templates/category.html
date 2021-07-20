@@ -1,7 +1,7 @@
 {% extends 'layouts/blog_base.html' %}
 {% load static %}
 
-{ % block meta %}
+{% block meta %}
 <!-- Facebook and Twitter integration -->
 <meta property="og:title" content="Blog" />
 <meta property="og:image" content="{%static "images/ban.jpg"%}" />
@@ -13,6 +13,7 @@
 <meta name="twitter:url" content="henri-dev.tech" />
 <meta name="twitter:card" content="summary_large_image">
 {% endblock %}
+
 
 {% block nav %}
 
@@ -90,7 +91,7 @@
 							<span><small>{{ post.created_at|date:'d'}} {{ post.created_at|date:'M'}}
 									{{ post.created_at|date:'Y'}}</small> | <small> {{ post.category.title}}</small> |
 								<small> <i class="icon-eye"></i> {{ post.view }}</small></span>
-							<h3><a href="/blog/post/{{ post.slug }}">{{ post.title}}</a></h3>
+							/<h3><a href="/blog/post/{{ post.slug }}">{{ post.title}}</a></h3>
 							<p>{{ post.body|truncatewords:'30'}}</p>
 						</div>
 					</div>
