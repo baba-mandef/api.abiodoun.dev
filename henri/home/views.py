@@ -8,8 +8,7 @@ from root.settings import EMAIL_HOST_USER
 
 def home(request):
     exps = Experience.objects.all()
-    latest = Post.objects.filter(published=True)
-    lasts = latest.order_by('created_at')[:3]
+    lasts = Post.objects.filter(published=True).order_by('-created_at')[:3]
     if request.method == 'GET':
         form = Contact()
     else:
