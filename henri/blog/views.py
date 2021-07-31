@@ -37,16 +37,16 @@ def details(request, slug):
     post_ip = ViewCount.objects.filter(post=post, ip_adress=ip)  # get view object for user_ip and post
     def callback_view(context: CallbackContext):
         context.bot.send_message(chat_id=chat,
-                                text=' Reader ip : {}\n Post title : {} \n First time : True \n link : https://henri-dev.tech/blog/post/{}'.format(ip, post.title, post.slug))
+                                text=' Reader ip : {}\n Post title : {} \n First time : True \n link : https://henri-dev.tech/blog/post/{} \n views : {}'.format(ip, post.title, post.slug, post.view))
     def callback_review(context: CallbackContext):
         context.bot.send_message(chat_id=chat,
-                                text=' Reader ip : {}\n Post title : {} \n First time : False \n link : https://henri-dev.tech/blog/post/{}'.format(ip, post.title, post.slug))
+                                text=' Reader ip : {}\n Post title : {} \n First time : False \n link : https://henri-dev.tech/blog/post/{} \n views : {}'.format(ip, post.title, post.slug, post.view))
 
     def callback_comment(context: CallbackContext):
         context.bot.send_message(chat_id=chat,
-                                text=' Comment author ip : {} \n\n Comment body : \n {} \n\n Post title : {} \n link : https://henri-dev.tech/blog/post/{}'.format(ip, comment.body, post.title, post.slug))
+                                text=' Comment author ip : {} \n Comment author name : {} \n Comment author mail : {} \n Comment body : \n {} \n\n Post title : {} \n link : https://henri-dev.tech/blog/post/{}'.format(ip, comment.author_name, comment.author_mail, comment.body, post.title, post.slug))
 
-    if post_ip:
+    if post_ip and post.published:
         # check if the visitor has already read this post
         post.view = post.view
         job.run_once(callback_review, 1)

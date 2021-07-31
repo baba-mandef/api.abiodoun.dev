@@ -1,7 +1,7 @@
 {% extends 'layouts/blog_base.html' %}
 {% load static %}
 
-{ % block meta %}
+{% block meta %}
 <!-- Facebook and Twitter integration -->
 <meta property="og:title" content="Blog" />
 <meta property="og:image" content="{%static "images/ban.jpg"%}" />
@@ -23,7 +23,7 @@
 		<h1 id="colorlib-logo"><a href="base.html">Salaou-Deen Paraïso</a></h1>
 		<span class="position"><a href="#">Développeur</a> au Bénin</span>
 	</div>
-
+	
 	<div class="colorlib-footer">
 
 		{% for cat in cats %}
