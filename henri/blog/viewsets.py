@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from django.shortcuts import get_object_or_404
 from henri.blog.serializers import PostSerializer, CommentSerializer, ViewSerializer, CategorySerializer
 from henri.blog.models import Comment, Category, ViewCount, Post
 
@@ -13,9 +14,9 @@ class CommentViewSet(ModelViewSet):
 
 
 class CategoryViewSet(ModelViewSet):
-    queryset = Category.objects.all
+    queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    http_method_names = ['get']
+    http_method_names = ['get', 'post']
 
 
 class ViewViewSet(ModelViewSet):
@@ -28,6 +29,13 @@ class ViewViewSet(ModelViewSet):
 
 
 class PostViewSet(ModelViewSet):
-    queryset = Post.objects.all()
     serializer_class = PostSerializer
     http_method_names = ['get', 'post', 'put']
+
+    def get_queryset(self):
+        queryset = Post.objects.all().order_by('-created_at')
+        slug = self.request.query_params.get('slug')
+        if slug is not None:
+            queryset = Post.objects.filter(slug=slug)
+        return queryset
+
