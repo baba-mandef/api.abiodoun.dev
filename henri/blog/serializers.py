@@ -1,4 +1,5 @@
 from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import StringRelatedField
 from henri.blog.models import (Post, Comment, Category, ViewCount)
 
 
@@ -15,9 +16,9 @@ class CommentSerializer(ModelSerializer):
 
 
 class CategorySerializer(ModelSerializer):
-    class Meta:
-        model = Category
-        fields = ['id', 'title']
+	class Meta:
+		model = Category
+		fields = ['title']
 
 
 class ViewSerializer(ModelSerializer):
