@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'henri.home',
+    'henri.work',
     'tinymce',
     'henri.blog',
     'cloudinary',

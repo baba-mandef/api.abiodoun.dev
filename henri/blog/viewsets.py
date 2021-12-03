@@ -16,7 +16,7 @@ class CommentViewSet(ModelViewSet):
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    http_method_names = ['get', 'post']
+    http_method_names = ['get']
 
 
 class ViewViewSet(ModelViewSet):
