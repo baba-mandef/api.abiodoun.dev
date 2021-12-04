@@ -9,11 +9,12 @@ class CommentViewSet(ModelViewSet):
     http_method_names = ['get', 'post']
 
     def get_queryset(self):
-		queryset = Comment.objects.all()
+        queryset = Comment.objects.all()
         post_pk = self.request.query_params['post']
-		if post_pk is not None:
-			queryset = Comment.objects.filter(post=post_pk)
+        if post_pk is not None:
+            queryset = Comment.object.filter(post=post_pk)
         return queryset
+
 
 
 class CategoryViewSet(ModelViewSet):
