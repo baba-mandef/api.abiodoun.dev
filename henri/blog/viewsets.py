@@ -12,7 +12,7 @@ class CommentViewSet(ModelViewSet):
         queryset = Comment.objects.all()
         post_pk = self.request.query_params['post']
         if post_pk is not None:
-            queryset = Comment.object.filter(post=post_pk)
+            queryset = Comment.objects.filter(post=post_pk)
         return queryset
 
 
