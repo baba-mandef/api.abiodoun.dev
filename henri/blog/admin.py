@@ -30,7 +30,7 @@ class CommentAdmin(ImportExportModelAdmin):
 class ViewResource(resources.ModelResource):
 
     class Meta:
-        model = Post
+        model = ViewCount
 
 
 class ViewAdmin(ImportExportModelAdmin):
