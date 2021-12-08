@@ -1,8 +1,8 @@
 from rest_framework import authentication
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAdminUser
-from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+# from django.shortcuts import get_object_or_404
 from henri.blog.serializers import PostSerializer, CommentSerializer, ViewSerializer, CategorySerializer
 from henri.blog.models import Comment, Category, ViewCount, Post
 
@@ -29,7 +29,7 @@ class CategoryViewSet(ModelViewSet):
 class ViewViewSet(ModelViewSet):
     serializer_class = ViewSerializer
     http_method_names = ['get', 'post']
-    permission_classes = [IsAdminUser,]
+    permission_classes = [IsAuthenticatedOrReadOnly,]
     authentication_classes = [TokenAuthentication]
 
     def get_queryset(self):
@@ -40,7 +40,8 @@ class ViewViewSet(ModelViewSet):
 class PostViewSet(ModelViewSet):
     serializer_class = PostSerializer
     http_method_names = ['get', 'post', 'put']
-    permission_classes = [IsAdminUser,]
+    permission_classes = [IsAuthenticatedOrReadOnly,]
+    authentication_classes = [TokenAuthentication]
     def get_queryset(self):
         queryset = Post.objects.all().order_by('-created_at')
         slug = self.request.query_params.get('slug')
