@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from henri.blog.viewsets import (PostViewSet, CategoryViewSet, ViewViewSet, CommentViewSet)
+from henri.blog.viewsets import (PostViewSet, CategoryViewSet, ViewViewSet, CommentViewSet, GetUserIP)
 from henri.work.viewsets import WorkViewset
 from django.urls import path, include
 
@@ -12,6 +12,9 @@ router.register(r'blog/view', ViewViewSet, basename='view')
 router.register(r'work', WorkViewset, basename='work')
 
 
+
 urlpatterns = [
+    path('getIp/', GetUserIP.as_view()),
     path('', include(router.urls)),
+   
 ]
