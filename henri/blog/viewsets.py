@@ -1,3 +1,4 @@
+from rest_framework import authentication
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAdminUser
@@ -28,7 +29,8 @@ class CategoryViewSet(ModelViewSet):
 class ViewViewSet(ModelViewSet):
     serializer_class = ViewSerializer
     http_method_names = ['get', 'post']
-    permission_classes = ['IsOwnerOrAdminUser']
+    permission_classes = [IsAdminUser,]
+    authentication_classes = [TokenAuthentication]
 
     def get_queryset(self):
         post_pk = self.request.query_params['post']
@@ -39,7 +41,6 @@ class PostViewSet(ModelViewSet):
     serializer_class = PostSerializer
     http_method_names = ['get', 'post', 'put']
     permission_classes = [IsAdminUser,]
-    authentication_classes=[TokenAuthentication]
     def get_queryset(self):
         queryset = Post.objects.all().order_by('-created_at')
         slug = self.request.query_params.get('slug')
