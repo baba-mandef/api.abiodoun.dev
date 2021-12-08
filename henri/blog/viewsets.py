@@ -1,6 +1,7 @@
-from rest_framework import authentication
+from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # from django.shortcuts import get_object_or_404
 from henri.blog.serializers import PostSerializer, CommentSerializer, ViewSerializer, CategorySerializer
@@ -13,7 +14,7 @@ class CommentViewSet(ModelViewSet):
 
     def get_queryset(self):
         queryset = Comment.objects.all()
-        post_pk = self.request.query_params['post']
+        post_pk = self.request.query_params.get('post')
         if post_pk is not None:
             queryset = Comment.objects.filter(post=post_pk)
         return queryset
@@ -33,7 +34,7 @@ class ViewViewSet(ModelViewSet):
     authentication_classes = [TokenAuthentication]
 
     def get_queryset(self):
-        post_pk = self.request.query_params['post']
+        post_pk = self.request.query_params.get('post')
         return ViewCount.objects.filter(post=post_pk)
 
 
@@ -49,3 +50,14 @@ class PostViewSet(ModelViewSet):
             queryset = Post.objects.filter(slug=slug)
         return queryset
 
+
+class GetUserIP(APIView):
+
+    def get(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return Response(ip)
