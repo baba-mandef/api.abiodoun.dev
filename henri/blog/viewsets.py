@@ -7,7 +7,7 @@ from telegram.ext import (Updater, CallbackContext)
 from root.settings import token, chat
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # from django.shortcuts import get_object_or_404
-from henri.blog.serializers import PostSerializer, CommentSerializer, ViewSerializer, CategorySerializer
+from henri.blog.serializers import PostSerializer, CommentSerializer, CategorySerializer
 from henri.blog.models import Comment, Category, ViewCount, Post
 
 update = Updater(token, use_context=True)
@@ -26,29 +26,18 @@ class CommentViewSet(ModelViewSet):
         return queryset
 
 
-
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     http_method_names = ['get']
 
 
-""" class ViewViewSet(ModelViewSet):
-    serializer_class = ViewSerializer
-    http_method_names = ['get', 'post']
-    permission_classes = [IsAuthenticatedOrReadOnly,]
-    authentication_classes = [TokenAuthentication]
-
-    def get_queryset(self):
-        post_pk = self.request.query_params.get('post')
-        return ViewCount.objects.filter(post=post_pk) """
-
-
 class PostViewSet(ModelViewSet):
     serializer_class = PostSerializer
     http_method_names = ['get', 'post', 'put']
-    permission_classes = [IsAuthenticatedOrReadOnly,]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [TokenAuthentication]
+
     def get_queryset(self):
         queryset = Post.objects.all().order_by('-created_at')
         slug = self.request.query_params.get('slug')
@@ -79,13 +68,13 @@ class ViewCounter(APIView):
 
         def callback_view(context: CallbackContext):
             context.bot.send_message(chat_id=chat,
-                                     text=' Reader ip : {}\n Post title : {} \n First time : True \n link : https://henri-dev.tech/blog/post/{} \n views : {}'.format(
-                                         ip, post.title, post.slug, post.view))
+                                     text='Reader ip : {}\n Post title : {} \n First time : True \n link : '
+                                          'https://henri-dev.tech/blog/post/{} \n views : {}'.format(ip, post.title, post.slug, post.view))
 
         def callback_review(context: CallbackContext):
             context.bot.send_message(chat_id=chat,
-                                     text=' Reader ip : {}\n Post title : {} \n First time : False \n link : https://henri-dev.tech/blog/post/{} \n views : {}'.format(
-                                         ip, post.title, post.slug, post.view))
+                                     text='Reader ip : {}\n Post title : {} \n First time : False \n link : '
+                                          'https://henri-dev.tech/blog/post/{} \n views : {}'.format(ip, post.title, post.slug, post.view))
         if view and post.published:
             post.view = post.view
             post.save()

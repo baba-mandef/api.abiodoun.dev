@@ -1,5 +1,3 @@
-from django.db.models import fields
-from django.db.models.base import Model
 from rest_framework.serializers import ModelSerializer
 from henri.work.models import Work
 

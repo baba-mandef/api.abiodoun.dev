@@ -1,4 +1,3 @@
-from rest_framework import serializers
 from rest_framework.viewsets import ModelViewSet
 from henri.work.models import Work
 from henri.work.serializers import WorkSerializers
@@ -18,4 +17,3 @@ class WorkViewset(ModelViewSet):
             queryset = Work.object.filter(slug=slug)
         
         return queryset
-    

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'henri.home',
+    # 'henri.home',
     'henri.work',
     'tinymce',
     'henri.blog',
