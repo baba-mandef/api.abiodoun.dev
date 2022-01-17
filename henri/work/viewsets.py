@@ -14,6 +14,6 @@ class WorkViewset(ModelViewSet):
         slug = self.request.query_params.get('slug')
 
         if slug is not None:
-            queryset = Work.object.filter(slug=slug)
-        
+            queryset = Work.objects.filter(slug=slug)
+
         return queryset

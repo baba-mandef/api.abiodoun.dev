@@ -22,7 +22,7 @@ class CommentViewSet(ModelViewSet):
         queryset = Comment.objects.all()
         post_pk = self.request.query_params.get('post')
         if post_pk is not None:
-            queryset = Comment.objects.filter(post=post_pk)
+            queryset = Comment.objects.filter(post=post_pk).order_by("-created_at")
         return queryset
 
 
