@@ -1,6 +1,5 @@
 from django.db import models
 from tinymce import HTMLField
-from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):

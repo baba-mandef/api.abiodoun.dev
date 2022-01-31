@@ -1,30 +1,19 @@
-from .settings import *
+from root.settings import *
+import dj_database_url
 
-ALLOWED_HOSTS = ['shadowcompiler.pythonanywhere.com',]
-DEBUG = True
-TEMPLATES_DEBUG = True
+ALLOWED_HOSTS = ['sadih.herokuapp.com', 'www.henri-dev.tech', 'henri-dev.tech']
+DEBUG = False
+TEMPLATES_DEBUG = False
 SECRET_KEY = os.environ.get('SECRET_KEY')
+DATABASES['default'] = dj_database_url.config()
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shadowcompiler$default',
-        'USER': 'shadowcompiler',
-        'PASSWORD': os.environ.get('DBPASS'),
-        'HOST': 'shadowcompiler.mysql.pythonanywhere-services.com',
-    }
-}
+CLOUDINARY_STORAGE = {
 
-
-CLOUDINARY = {
-
-    'cloud_name': os.environ.get('CLOUDNAME'),
-    'api_key': os.environ.get('APIKEY'),
-    'api_secret': os.environ.get('APISECRET'),
-    'api_proxy': 'http://proxy.server:3128'
+    'CLOUD_NAME': os.environ.get('CLOUDNAME'),
+    'API_KEY': os.environ.get('APIKEY'),
+    'API_SECRET': os.environ.get('APISECRET')
 
 }
-CLOUDINARY_URL=os.environ.get('CLOUDINARY_URL')
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MEDIA_URL = '/media-henry/'

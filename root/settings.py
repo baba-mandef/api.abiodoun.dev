@@ -94,14 +94,10 @@ WSGI_APPLICATION = 'root.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shadowcompiler$default',
-        'USER': 'shadowcompiler',
-        'PASSWORD': os.environ.get('DBPASS'),
-        'HOST': 'shadowcompiler.mysql.pythonanywhere-services.com',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 
 # Password validation
@@ -125,8 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS  = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
-    "https://henri-dev.netlify.app",
-    "https://henri-dev.com",
 ]
 
 
