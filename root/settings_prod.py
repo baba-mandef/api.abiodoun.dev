@@ -1,7 +1,7 @@
 from root.settings import *
 import dj_database_url
 
-ALLOWED_HOSTS = ['sadih.herokuapp.com', 'www.henri-dev.tech', 'henri-dev.tech']
+ALLOWED_HOSTS = ['sadih.herokuapp.com']
 DEBUG = True
 TEMPLATES_DEBUG = True
 SECRET_KEY = os.environ.get('SECRET_KEY')
