@@ -5,7 +5,7 @@ from henri.work.serializers import WorkSerializers
 
 class WorkViewset(ModelViewSet):
     serializer_class = WorkSerializers
-    http_methods = ['get',  'post']
+    http_method_names = ['get',  'post']
     lookup_filed = 'slug'
 
     def get_queryset(self):
