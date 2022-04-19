@@ -23,6 +23,9 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     # path('', include('henri.home.urls')),
     path('api/v1/', include('henri.routers'))
+     path('openapi/', get_schema_view( title="SchoolMan", description="API developers"
+    ), name='openapi-schema'),
+    path('docs', TemplateView.as_view(template_name='swagger-ui.html', extra_context={'schema_url':'openapi-schema'}), name='swagger-ui'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
