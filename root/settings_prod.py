@@ -1,10 +1,11 @@
 from .settings import *
+import dj_database_url
 
-#ALLOWED_HOSTS = ['sadih.herokuapp.com']
+ALLOWED_HOSTS = ['sadih.herokuapp.com']
 DEBUG = True
 TEMPLATES_DEBUG = True
 SECRET_KEY = os.environ.get('SECRET_KEY')
-#DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 CLOUDINARY = {
 
