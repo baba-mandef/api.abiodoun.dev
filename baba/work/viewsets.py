@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from henri.work.models import Work
-from henri.work.serializers import WorkSerializers
+from baba.work.models import Work
+from baba.work.serializers import WorkSerializers
 
 
 class WorkViewset(ModelViewSet):

@@ -43,14 +43,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # 'henri.home',
-    'henri.work',
-    'tinymce',
-    'henri.blog',
+    
+    # 'baba.home',
+    'baba',
+    'baba.work',
+    'baba.blog',
+    
+    # third party
     'cloudinary',
     'cloudinary_storage',
     'crispy_forms',
     'rest_framework',
+    'tinymce',
     'corsheaders',
     'import_export',
     'rest_framework.authtoken'
@@ -93,10 +97,15 @@ WSGI_APPLICATION = 'root.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.environ.get("DATABASE_NAME", "baba_mandef_db"),
+        "USER": os.environ.get("DATABASE_USER", "djehuty"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "wCh29&HE&T83"),
+        "HOST": os.environ.get("DATABASE_HOST", "localhost"),
+        "PORT": os.environ.get("DATABASE_PORT", "5432"),
     }
+
 }
 
 
@@ -129,10 +138,10 @@ CORS_ALLOWED_ORIGINS  = [
 
 
 
-# Internationalization
+# Internationalizationimg
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'fr'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

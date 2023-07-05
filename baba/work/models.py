@@ -1,5 +1,5 @@
 from django.db import models
-from tinymce import HTMLField
+from tinymce.models import HTMLField
 
 class Work(models.Model):
     id = models.AutoField(primary_key=True)

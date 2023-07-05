@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from henri.work.models import Work
+from baba.work.models import Work
 
 
 class WorkSerializers(ModelSerializer):

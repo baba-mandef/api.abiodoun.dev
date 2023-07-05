@@ -1,5 +1,5 @@
 from django.contrib import admin
-from henri.work.models import Work
+from baba.work.models import Work
 
 # Register your models here.
 
