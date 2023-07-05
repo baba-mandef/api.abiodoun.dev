@@ -43,12 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    
+
     # 'baba.home',
     'baba',
     'baba.work',
     'baba.blog',
-    
+
     # third party
     'cloudinary',
     'cloudinary_storage',
@@ -61,10 +61,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'root.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-     "default": {
+    "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": os.environ.get("DATABASE_NAME", "baba_mandef_db"),
         "USER": os.environ.get("DATABASE_USER", "djehuty"),
@@ -127,16 +127,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-""" CORS_ALLOWED_ORIGINS  = [
+CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     "https://henri-dev.netlify.app",
+    "https://baba-mandef.netlify.app",
+    "http://baba-mandef.netlify.app",
     "http://henri-dev.netlify.app",
     "https://henri-dev.com",
     "http://henri-dev.com",
 ]
- """
-CORS_ALLOW_ALL_ORIGINS=True
 
 
 # Internationalizationimg
