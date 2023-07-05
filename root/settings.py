@@ -136,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
     "http://henri-dev.com",
 ]
  """
- CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_ALL_ORIGINS=True
 
 
 # Internationalizationimg
