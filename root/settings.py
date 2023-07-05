@@ -127,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CORS_ALLOWED_ORIGINS  = [
+""" CORS_ALLOWED_ORIGINS  = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     "https://henri-dev.netlify.app",
@@ -135,7 +135,8 @@ CORS_ALLOWED_ORIGINS  = [
     "https://henri-dev.com",
     "http://henri-dev.com",
 ]
-
+ """
+ CORS_ALLOW_ALL_ORIGINS=True
 
 
 # Internationalizationimg
