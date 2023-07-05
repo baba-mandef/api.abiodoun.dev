@@ -10,7 +10,7 @@ decorator==4.4.2
 defusedxml==0.7.1
 diff-match-patch==20200713
 dj-database-url==0.5.0
-Django==3.6
+Django==3.2
 django-cloudinary-storage==0.3.0
 django-cors-headers==3.10.0
 django-crispy-forms==1.9.2
