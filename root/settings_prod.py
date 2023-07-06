@@ -12,7 +12,7 @@ CLOUDINARY = {
     'cloud_name': os.environ.get('CLOUDNAME'),
     'api_key': os.environ.get('APIKEY'),
     'api_secret': os.environ.get('APISECRET'),
-    'api_proxy': 'http://proxy.server:3128'
+    # 'api_proxy': 'http://proxy.server:3128'
 
 }
 CLOUDINARY_URL=os.environ.get('CLOUDINARY_URL')
