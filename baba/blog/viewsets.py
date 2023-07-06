@@ -20,9 +20,9 @@ class CommentViewSet(ModelViewSet):
 
     def get_queryset(self):
         queryset = Comment.objects.all()
-        post_pk = self.request.query_params.get('post')
-        if post_pk is not None:
-            queryset = Comment.objects.filter(post=post_pk)
+        post_slug = self.request.query_params.get('post')
+        if post_slug is not None:
+            queryset = Comment.objects.filter(post__slug=post_slug)
         return queryset
 
 
