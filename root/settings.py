@@ -132,6 +132,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     "https://henri-dev.netlify.app",
     "https://baba-mandef.netlify.app",
+    "https://baba-mandef.vercel.app",
+    "http://baba-mandef.vercel.app",
     "http://baba-mandef.netlify.app",
     "http://henri-dev.netlify.app",
     "https://henri-dev.com",
