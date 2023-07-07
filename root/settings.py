@@ -130,6 +130,8 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
+    "http://baba-mandef-front.onrender.com",
+    "https://baba-mandef-front.onrender.com",
     "https://henri-dev.netlify.app",
     "https://baba-mandef.netlify.app",
     "https://baba-mandef.vercel.app",
