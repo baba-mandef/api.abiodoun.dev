@@ -39,13 +39,13 @@ class PostViewSet(ModelViewSet):
     authentication_classes = [TokenAuthentication]
 
     def get_queryset(self):
-        queryset = Post.objects.all().order_by('-created_at')
+        queryset = Post.objects.filter(published=True).order_by('-created_at')
         slug = self.request.query_params.get('slug')
         category = self.request.query_params.get('category')
         if slug is not None:
-            queryset = Post.objects.filter(slug=slug)
+            queryset = Post.objects.filter(slug=slug, published=True)
         elif category is not None:
-            queryset = Post.objects.filter(category__title=category)
+            queryset = Post.objects.filter(category__title=category, published=True)
         return queryset
 
 
