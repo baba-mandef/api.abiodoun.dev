@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from baba.utils.get_ip import visitor_ip_address
+from abiodoun.utils.get_ip import visitor_ip_address
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
@@ -7,8 +7,8 @@ from telegram.ext import (Updater, CallbackContext)
 from root.settings import token, chat
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # from django.shortcuts import get_object_or_404
-from baba.blog.serializers import PostSerializer, CommentSerializer, CategorySerializer
-from baba.blog.models import Comment, Category, ViewCount, Post
+from abiodoun.blog.serializers import PostSerializer, CommentSerializer, CategorySerializer
+from abiodoun.blog.models import Comment, Category, ViewCount, Post
 
 update = Updater(token, use_context=True)
 job = update.job_queue

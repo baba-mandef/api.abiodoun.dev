@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
-from baba.blog.viewsets import (PostViewSet, CategoryViewSet, CommentViewSet, GetUserIP, ViewCounter)
-from baba.work.viewsets import WorkViewset
+from abiodoun.blog.viewsets import (PostViewSet, CategoryViewSet, CommentViewSet, GetUserIP, ViewCounter)
+from abiodoun.work.viewsets import WorkViewset
 from django.urls import path, include
 
 router = DefaultRouter(trailing_slash=False)

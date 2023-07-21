@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from baba.work.models import Work
-from baba.work.serializers import WorkSerializers
+from abiodoun.work.models import Work
+from abiodoun.work.serializers import WorkSerializers
 
 
 class WorkViewset(ModelViewSet):

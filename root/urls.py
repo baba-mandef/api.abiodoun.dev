@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     
-    path('api/v1/', include('baba.routers')),
+    path('api/v1/', include('abiodoun.routers')),
      path('openapi/', get_schema_view( title="SchoolMan", description="API developers"
     ), name='openapi-schema'),
     path('docs', TemplateView.as_view(template_name='swagger-ui.html', extra_context={'schema_url':'openapi-schema'}), name='swagger-ui'),

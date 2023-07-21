@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     # 'baba.home',
-    'baba',
-    'baba.work',
-    'baba.blog',
+    'abiodoun',
+    'abiodoun.work',
+    'abiodoun.blog',
 
     # third party
     'cloudinary',

@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework.serializers import StringRelatedField
-from baba.blog.models import (Post, Comment, Category, ViewCount)
+from abiodoun.blog.models import (Post, Comment, Category, ViewCount)
 
 
 class PostSerializer(ModelSerializer):
