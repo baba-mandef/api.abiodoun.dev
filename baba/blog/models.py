@@ -17,8 +17,8 @@ class Post(models.Model):
     banner = models.ImageField(upload_to='blog/post_banner')
     post = HTMLField()
     en_version = HTMLField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=False)
-    updated_at = models.DateTimeField(auto_now=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     published = models.BooleanField(default=True)
     view = models.IntegerField(default=0)
@@ -38,7 +38,7 @@ class ViewCount(models.Model):
 
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)
-    created_at = models.DateTimeField(auto_now_add=False)
+    created_at = models.DateTimeField(auto_now_add=True)
     body = models.TextField()
     author_name = models.CharField(max_length=50)
     author_mail = models.EmailField(max_length=50)
