@@ -42,7 +42,6 @@ class Comment(models.Model):
     body = models.TextField()
     author_name = models.CharField(max_length=50)
     author_mail = models.EmailField(max_length=50)
-    author_pic = models.ImageField(default='comments/d.png')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):
