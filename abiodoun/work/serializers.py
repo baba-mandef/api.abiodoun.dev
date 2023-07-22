@@ -6,4 +6,4 @@ class WorkSerializers(ModelSerializer):
 
     class Meta:
         model = Work
-        fields = ['id', 'name', 'slug', 'body', 'banner', 'created_at', 'updated_at']
+        fields = '__all__'

@@ -1,12 +1,15 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework.serializers import StringRelatedField
-from abiodoun.blog.models import (Post, Comment, Category, ViewCount)
+from abiodoun.blog.models import (Post, Comment, Category)
 
 
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'title', 'slug', 'banner', 'post', 'created_at', 'updated_at', 'category', 'published', 'view']
+        fields = ['id', 'title', 'slug', 'banner', 'post',
+                  'en_title', 'en_banner', 'en_post',
+                  'created_at', 'updated_at', 'category',
+                  'published',]
 
 
 class CommentSerializer(ModelSerializer):
@@ -16,13 +19,6 @@ class CommentSerializer(ModelSerializer):
 
 
 class CategorySerializer(ModelSerializer):
-	class Meta:
-		model = Category
-		fields = ['title']
-
-
-class ViewSerializer(ModelSerializer):
     class Meta:
-        model = ViewCount
-        fields = ['id', 'ip_adress', 'post']
-
+        model = Category
+        fields = ['title']
