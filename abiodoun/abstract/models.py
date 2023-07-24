@@ -25,3 +25,6 @@ class AbiodounObject(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = AbiodounObjectManager()
+    
+    class Meta:
+        abstract = True
