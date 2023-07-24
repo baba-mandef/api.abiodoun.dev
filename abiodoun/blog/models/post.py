@@ -1,7 +1,7 @@
 from django.db import models
 from abiodoun.abstract.models import AbiodounObject
 from tinymce.models import HTMLField
-from abiodoun.blog.models import Category
+from .category import Category
 
 
 class Post(AbiodounObject):
