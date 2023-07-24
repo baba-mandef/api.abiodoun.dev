@@ -1,5 +1,4 @@
 from rest_framework.serializers import ModelSerializer
-from rest_framework.serializers import StringRelatedField
 from abiodoun.blog.models import (Post, Comment, Category)
 
 
