@@ -1,17 +1,17 @@
-from rest_framework.views import APIView
-from abiodoun.utils.get_ip import visitor_ip_address
+# from rest_framework.views import APIView
+# from abiodoun.utils.get_ip import visitor_ip_address
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
-from telegram.ext import (Updater, CallbackContext)
-from root.settings import token, chat
+# from rest_framework.response import Response
+# from telegram.ext import (Updater, CallbackContext)
+# from root.settings import token, chat
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # from django.shortcuts import get_object_or_404
 from abiodoun.blog.serializers import PostSerializer, CommentSerializer, CategorySerializer
-from abiodoun.blog.models import Comment, Category, ViewCount, Post
+from abiodoun.blog.models import Comment, Category, Post
 
-update = Updater(token, use_context=True)
-job = update.job_queue
+# update = Updater(token, use_context=True)
+# job = update.job_queue
 
 
 class CommentViewSet(ModelViewSet):
@@ -49,7 +49,7 @@ class PostViewSet(ModelViewSet):
         return queryset
 
 
-class GetUserIP(APIView):
+""" class GetUserIP(APIView):
 
     def get(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -58,10 +58,10 @@ class GetUserIP(APIView):
             ip = x_forwarded_for.split(',')[0]
         else:
             ip = request.META.get('REMOTE_ADDR')
-        return Response(ip)
+        return Response(ip) """
 
 
-class ViewCounter(APIView):
+""" class ViewCounter(APIView):
 
     def get(self, request):
         ip = visitor_ip_address(request)
@@ -89,7 +89,7 @@ class ViewCounter(APIView):
             new_ip.save()
             job.run_once(callback_view, 1)
             post.save()
-            return Response("New reader")
+            return Response("New reader") """
 
 
 
