@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'abiodoun',
     'abiodoun.work',
     'abiodoun.blog',
+    'abiodoun.message',
 
     # third party
     'cloudinary',
@@ -164,11 +165,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('HOST_MAIL')
-EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASSWORD')
-token = os.environ.get('BOT')
-chat = os.environ.get('CHAT')
+
+
+# ZOHO MAIL
+ZOHO_HOST = 'smtp.zoho.com'
+ZOHO_LOGIN = os.environ.get('ZOHO_LOGIN')
+ZOHO_PASSWORD = os.environ.get('ZOHO_PASSWORD')
+DEFAULT_ZOHO_EMAIL = 'contact@abiodoun.dev'
+
+TOKEN = os.environ.get('BOT')
+CHAT = os.environ.get('CHAT')
