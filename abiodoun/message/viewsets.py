@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from telegram.ext import ApplicationBuilder, ContextTypes
 from django.template.loader import render_to_string
 from abiodoun.utils.mail_client import Email_Message
+from abiodoun.message.models import Message
 
 
 class MessageViewSet(ModelViewSet):
@@ -45,6 +46,8 @@ class MessageViewSet(ModelViewSet):
             message
         )
         message.send()
+
+        message = Message.objects.create(**serializer.validated_data)
 
         """ async def new_message(context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_message(chat_id=settings.CHAT,
