@@ -6,4 +6,4 @@ class MessageSerializer(ModelSerializer):
 
     class Meta:
         model = Message
-        fields = '__all__'
+        fields = ['sender_name', 'sneder_email', 'body']
