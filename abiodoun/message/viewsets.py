@@ -3,13 +3,10 @@ from abiodoun.message.serializers import MessageSerializer
 from rest_framework.status import HTTP_201_CREATED
 from rest_framework.response import Response
 from telegram.ext import ApplicationBuilder, ContextTypes
-<<<<<<< HEAD
 from abiodoun.utils.mail_client import Email_Message
 from django.conf import settings
-=======
 from django.template.loader import render_to_string
 from abiodoun.utils.mail_client import Email_Message
->>>>>>> 308c97865c3ad1187dffad9e32361986e3f6c0d3
 from abiodoun.message.models import Message
 
 
@@ -54,20 +51,17 @@ class MessageViewSet(ModelViewSet):
 
         message = Message.objects.create(**serializer.validated_data)
 
-<<<<<<< HEAD
-        async def new_message(context: ContextTypes.DEFAULT_TYPE):
+        """ async def new_message(context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_message(chat_id=settings.CHAT,
                                            text=f'Nouveau message de : {sender} | {sender_email}\n {body}'
                                            ) 
         application = ApplicationBuilder().token(settings.TOKEN).build()
-        application.job_queue.run_once(new_message)
-=======
+        application.job_queue.run_once(new_message) """
         """ async def new_message(context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_message(chat_id=settings.CHAT,
                                            text=f'Nouveau message de : {sender} | {sender_email}\n {body}'
                                            ) """
         # application = ApplicationBuilder().token(settings.TOKEN).build()
         # application.job_queue.run_once(new_message)
->>>>>>> 308c97865c3ad1187dffad9e32361986e3f6c0d3
 
         return Response("Sucess", HTTP_201_CREATED)
