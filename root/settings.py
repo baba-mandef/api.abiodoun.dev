@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'abiodoun.blog',
     'abiodoun.message',
 
+    # misc
+    'abiodoun.abstract',
+
     # third party
     'cloudinary',
     'cloudinary_storage',
@@ -99,11 +102,11 @@ WSGI_APPLICATION = 'root.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.environ.get("DATABASE_NAME", "baba_mandef_db"),
-        "USER": os.environ.get("DATABASE_USER", "djehuty"),
-        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "wCh29&HE&T83"),
-        "HOST": os.environ.get("DATABASE_HOST", "localhost"),
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("DATABASE_NAME", "postgres"),
+        "USER": os.environ.get("DATABASE_USER", "postgres"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
+        "HOST": os.environ.get("DATABASE_HOST", "db"),
         "PORT": os.environ.get("DATABASE_PORT", "5432"),
     }
 
