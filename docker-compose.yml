@@ -1,5 +1,28 @@
 version: '3.7'
 services:
+  db:
+    container_name: abiodoun_db
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  api:
+    container_name: abiodoun_api
+    build: .
+    env_file: root/.env
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c " python manage.py migrate &&
+          gunicorn root.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - db
   nginx:
     container_name: abiodoun_web
     restart: on-failure
@@ -11,29 +34,7 @@ services:
       - "80:80"
     depends_on:
       - api
-  api:
-    container_name: abiodoun_api
-    build: .
-    env_file: .env
-    ports:
-      - "8000:8000"
-    command: >
-      sh -c " python manage.py migrate &&
-          gunicorn root.wsgi:application --bind 0.0.0.0:8000"      
-    volumes:
-     - .:/app
-     - static_volume:/app/static
-    depends_on:
-     - db
-  db:
-    container_name: abiodoun_db
-    image: postgres
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+
 
 volumes:
   static_volume:
