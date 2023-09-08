@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   db:
-    container_name: abiodoun_db
+    container_name: _db
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
@@ -10,8 +10,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  api:
-    container_name: abiodoun_api
+  abiodoun:
+    container_name: _api
     build: .
     env_file: root/.env
     ports:
@@ -25,7 +25,7 @@ services:
     depends_on:
       - db
   nginx:
-    container_name: abiodoun_web
+    container_name: _web
     restart: on-failure
     image: nginx:stable
     volumes:

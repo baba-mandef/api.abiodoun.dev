@@ -106,7 +106,7 @@ DATABASES = {
         "NAME": os.environ.get("DATABASE_NAME", "postgres"),
         "USER": os.environ.get("DATABASE_USER", "postgres"),
         "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
-        "HOST": os.environ.get("DATABASE_HOST", "db"),
+        "HOST": os.environ.get("DATABASE_HOST", "_db"),
         "PORT": os.environ.get("DATABASE_PORT", "5432"),
     }
 
@@ -162,6 +162,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static/'),
 # )
