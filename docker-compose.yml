@@ -36,8 +36,8 @@ services:
       ENVSUBST_VARS: api_host
       api_host: "contact@abiodoun.dev"
     volumes:
-      - ./conf.d:/etc/nginx/user.conf.d:ro
-      - ./nginx/mimes.types:/etc/nginx/mime.types:ro
+      - ./conf.d:/etc/nginx/user.conf.d
+      - ./nginx/mimes.types:/etc/nginx/mime.types
       - static_volume:/code/static
       - letsencrypt:/etc/letsencrypt
     depends_on:
