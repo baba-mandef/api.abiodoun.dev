@@ -33,11 +33,11 @@ services:
       - "443:443"
     environment:
       CERTBOT_EMAIL: "contact@abiodoun.dev"
-      ENVSUBST_VARS: api-v1
-      api-v1: "contact@abiodoun.dev"
+      ENVSUBST_VARS: api_host
+      api_host: "contact@abiodoun.dev"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/mimes.types:/etc/nginx/mime.types:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/mimes.types:/etc/nginx/mime.types
       - static_volume:/code/static
       - letsencrypt:/etc/letsencrypt
     depends_on:
