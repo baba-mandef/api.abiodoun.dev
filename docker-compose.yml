@@ -26,20 +26,17 @@ services:
       - db
   nginx:
     container_name: abiodoun_web
-    restart: on-failure
-    image: staticfloat/nginx-certbot
+    restart: unless-stopped
+    image: jonasal/nginx-certbot:latest
     ports:
       - "80:80"
       - "443:443"
-    environment:
-      CERTBOT_EMAIL: "contact@abiodoun.dev"
-      ENVSUBST_VARS: api_host
-      api_host: "contact@abiodoun.dev"
+    env_file:
+      - .env.nginx
     volumes:
-      - ./conf.d:/etc/nginx/user.conf.d
-      - ./nginx/mimes.types:/etc/nginx/mime.types
-      - static_volume:/code/static
-      - letsencrypt:/etc/letsencrypt
+      - ./conf:/etc/nginx/user_conf.d
+      - ./conf/mimes.types:/etc/nginx/mime.types
+      - nginx_secrets:/etc/letsencrypt
     depends_on:
       - api
 
@@ -47,4 +44,4 @@ services:
 volumes:
   static_volume:
   postgres_data:
-  letsencrypt:
+  nginx_secrets:
