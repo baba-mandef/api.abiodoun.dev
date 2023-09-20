@@ -45,8 +45,6 @@ services:
     volumes:
       - .letsencrypt:/etc/letsencrypt
     command: certonly --webroot --webroot-path=/usr/share/nginx/html --email contact@abiodoun.dev --agree-tos -d api.abiodoun.dev
-    depends_on:
-      - nginx
 
 
 volumes:
