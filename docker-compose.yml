@@ -26,19 +26,27 @@ services:
       - db
   nginx:
     container_name: abiodoun_web
-    restart: unless-stopped
-    image: jonasal/nginx-certbot:latest
+    restart: always
+    image: nginx:latest
     ports:
       - "80:80"
       - "443:443"
-    env_file:
-      - .env.nginx
     volumes:
       - ./conf:/etc/nginx/user_conf.d
       - ./conf/mimes.types:/etc/nginx/mime.types
-      - nginx_secrets:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot/
     depends_on:
       - api
+      - certbot
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - .letsencrypt:/etc/letsencrypt
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html --email contact@abiodoun.dev --agree-tos -d api.abiodoun.dev
+    depends_on:
+      - nginx
 
 
 volumes:
