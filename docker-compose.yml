@@ -34,11 +34,10 @@ services:
     volumes:
       - ./conf:/etc/nginx/user_conf.d
       - ./conf/mimes.types:/etc/nginx/mime.types
-      - ./certbot/www:/var/www/certbot/
+      - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     depends_on:
       - api
-      - certbot
 
   certbot:
     image: certbot/certbot
