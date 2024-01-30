@@ -8,6 +8,7 @@ class Work(AbiodounObject):
     slug = models.SlugField(max_length=500, unique=True)
     description = models.CharField(max_length=500)
     en_description = models.CharField(max_length=500, blank=True)
+    logo = models.ImageField(upload_to='work/work_logo')
     banner= models.ImageField(upload_to='work/work_banner')
     body = HTMLField()
     en_body = HTMLField(blank=True)
