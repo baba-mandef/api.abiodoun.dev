@@ -1,6 +1,9 @@
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.utils import formataddr
 from django.conf import settings
+from email.header import Header
 
 
 class Email_Message():
@@ -23,16 +26,17 @@ class Email_Message():
         self.password = settings.ZOHO_PASSWORD
 
     @property
-    def _message(self) -> MIMEText:
+    def _message(self) -> MIMEMultipart:
         """
         Generate the email message in MIMEText format.
 
         Returns:
             MIMEText: The email message in MIMEText format.
         """
-        email_message = MIMEText(self.message)
+        email_message = MIMEMultipart()
+        email_message.attach(MIMEText(self.message, 'html'))
         email_message['Subject'] = self.subject
-        email_message['From'] = self.sender
+        email_message['From'] = formataddr((str(Header('Abiodoun Paraiso', 'utf-8')), self.sender))
         email_message['To'] = ', '.join(self.recipient)
 
         return email_message
