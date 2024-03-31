@@ -36,6 +36,7 @@ services:
       - ./conf/mimes.types:/etc/nginx/mime.types
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/letsencrypt/:ro
+      - static_volume:/code/static
     depends_on:
       - api
       - certbot
@@ -46,7 +47,7 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot --webroot-path /var/www/certbot/ --email contact@abiodoun.dev --agree-tos -d api.abiodoun.dev
+    command: renew
 
 
 volumes:
