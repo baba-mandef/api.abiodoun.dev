@@ -30,9 +30,9 @@ signature = """
                 </td>
                 <td style="vertical-align:middle;">
                     <h2 style="margin:0; font-size:18px; font-weight:600; color:#000a40;">Abiodoun PARAÏSO</h2>
-                    <p style="margin:0; line-height:22px; color:#000a40; font-size: 14px; font-weight: 500;">Développeur de logiciel</p>
-                    <p style="margin:0; line-height:22px; color:#000a40; font-size: 14px; font-weight: 500;">Baba Mandef .inc</p>
-                    <p style="margin:0; line-height:22px; color:#000a40; font-size: 14px;">L'innovation au service de l'humain.</p>
+                    <p style="margin:0; line-height:22px; color:#000a40; font-size: 14px; font-weight: 500;">Software Developer</p>
+                    <p style="margin:0; line-height:22px; color:#000a40; font-size: 14px; font-weight: 500;">Rezolusoft</p>
+                    <p style="margin:0; line-height:22px; color:#000a40; font-size: 14px;"></p>
                 </td>
                 <td width="30"></td>
                 <td class="color-divider__Divider-sc-1h38qjv-0 llIisW" style="width:1px; border-bottom:medium; border-left:1px solid #ff7624;" height="auto" width="1"></td>
@@ -46,7 +46,7 @@ signature = """
                                 </div>
                             </td>
                             <td style="padding:0px; color:#000a40;">
-                                <a style="text-decoration:none; font-size:12px; color:#000a40;" href="tel:+22998879049">229 98879049</a>
+                                <a style="text-decoration:none; font-size:12px; color:#000a40;" href="tel:+22966173930">229 66173930</a>
                             </td>
                         </tr>
                         <tr height="25" style="vertical-align:middle">
