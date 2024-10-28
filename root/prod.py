@@ -1,5 +1,5 @@
 from .settings import *
-import pymysql
+# import pymysql
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +49,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media-henry/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media-henry/')
 
-
+""" 
 pymysql.version_info = (1, 4, 2, "final", 0)
-pymysql.install_as_MySQLdb()
+pymysql.install_as_MySQLdb() """
