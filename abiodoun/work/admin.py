@@ -1,6 +1,16 @@
 from django.contrib import admin
 from abiodoun.work.models import Work
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources
 
-# Register your models here.
 
-admin.site.register(Work)
+class WorkResource(resources.ModelResource):
+
+    class Meta:
+        model = Work
+
+class WorkAdmin(ImportExportModelAdmin):
+    resource_class = WorkResource
+
+admin.site.register(Work, WorkAdmin)
+
