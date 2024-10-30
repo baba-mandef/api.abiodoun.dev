@@ -130,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-""" 
+
 CORS_ALLOWED_ORIGINS = [
 
     "http://127.0.0.1:3000",
@@ -139,8 +139,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://baba-mandef.netlify.app",
     "https://abiodoun.dev",
     "http://abiodoun.dev",
-] """
-CORS_ALLOW_ALL_ORIGINS = True
+]
+# CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Internationalizationimg
