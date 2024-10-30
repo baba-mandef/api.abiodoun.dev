@@ -29,7 +29,7 @@ TEMPLATES_DEBUG = os.environ.get('TEMPLATE_DEBUG')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = ['rezolusoft.com', 'www.rezolusoft.com', 'abiodoun.rezolusoft.com', 'api.abiodoun.dev']
+ALLOWED_HOSTS = ['rezolusoft.com', 'www.rezolusoft.com', 'abiodoun.rezolusoft.com', 'www.abiodoun.rezolusoft.com', 'api.abiodoun.dev']
 
 
 STATIC_ROOT = os.path.join('/home/rezogsyk/api.abiodoun.dev/static/')
