@@ -1,7 +1,7 @@
 from .settings import *
 # import dj_database_url
 
-ALLOWED_HOSTS = ['3.75.214.232', 'api.abiodoun.dev']
+ALLOWED_HOSTS = ['3.75.214.232', 'api.abiodoun.dev', 'abiodoun.rezolusoft.com']
 DEBUG = True
 TEMPLATES_DEBUG = True
 SECRET_KEY = os.environ.get('SECRET_KEY')
