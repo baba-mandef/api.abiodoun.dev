@@ -137,6 +137,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://10.0.2.2:3000",
     "https://baba-mandef.netlify.app",
     "http://baba-mandef.netlify.app",
+    "http://henri-dev.netlify.app",
+    "https://henri-dev.netlify.app",
     "https://abiodoun.dev",
     "http://abiodoun.dev",
 ]
