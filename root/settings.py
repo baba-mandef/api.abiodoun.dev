@@ -108,7 +108,12 @@ DATABASES = {
         "PASSWORD": os.environ.get("DATABASE_PASSWORD", "postgres"),
         "HOST": os.environ.get("DATABASE_HOST", "db"),
         "PORT": os.environ.get("DATABASE_PORT", "5432"),
-    }
+    },
+    
+    'OPTIONS': {
+            'charset': 'utf8mb4',
+            'init_command': "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci",
+    },
 
 }
 
