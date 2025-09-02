@@ -36,7 +36,7 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ("author_name", "author_mail", "body")
 
     def decoded_body(self, obj):
-        return base64.b64decode(obj.body.encode('ascii')).decode('utf-8')
+        return base64.b64decode(obj.body.encode('utf-8')).decode('utf-8')
 
     decoded_body.short_description = "Commentaire"
 

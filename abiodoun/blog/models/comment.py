@@ -13,5 +13,5 @@ class Comment(AbiodounObject):
         return self.author_name
     
     def save(self, *args, **kwargs):
-        self.body = base64.b64encode(self.body.encode('utf-8')).decode('ascii')
+        self.body  = base64.b64encode(self.body.encode('utf-8')).decode('utf-8')
         return super().save()
