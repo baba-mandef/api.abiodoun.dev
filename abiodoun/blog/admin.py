@@ -2,6 +2,7 @@ from django.contrib import admin
 from abiodoun.blog.models import (Post, Category, Comment)
 from import_export.admin import ImportExportModelAdmin
 from import_export import resources
+from pyemoji import decode
 
 
 class PostResource(resources.ModelResource):
@@ -29,7 +30,18 @@ class CommentAdmin(ImportExportModelAdmin):
 
 
 
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("author_name", "decoded_body", "post", "created_at")
+    search_fields = ("author_name", "author_mail", "body")
+
+    def decoded_body(self, obj):
+        return decode(obj.body)
+
+    decoded_body.short_description = "Commentaire"
+
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CAdmin)
-admin.site.register(Comment, CommentAdmin)
+admin.site.register(CommentAdmin)
