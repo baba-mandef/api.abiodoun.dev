@@ -1,5 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from abiodoun.blog.models import (Post, Comment, Category)
+from pyemoji import decode
 
 
 class PostSerializer(ModelSerializer):
@@ -15,6 +16,9 @@ class CommentSerializer(ModelSerializer):
     class Meta:
         model = Comment
         fields = ['id', 'body', 'author_name', 'author_mail', 'post', 'created_at']
+
+        def get_body(self, obj):
+            return decode(obj.body)
 
 
 class CategorySerializer(ModelSerializer):
