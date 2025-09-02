@@ -1,6 +1,7 @@
 from django.db import models
 from abiodoun.abstract.models import AbiodounObject
 from .post import Post
+from pyemoji import encode
 
 
 class Comment(AbiodounObject):
@@ -11,3 +12,7 @@ class Comment(AbiodounObject):
 
     def __str__(self):
         return self.author_name
+    
+    def save(self, *args, **kwargs):
+        self.body = encode(self.body)
+        return super().save()
