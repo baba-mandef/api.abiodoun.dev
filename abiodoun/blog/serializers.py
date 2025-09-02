@@ -17,8 +17,15 @@ class CommentSerializer(ModelSerializer):
         model = Comment
         fields = ['id', 'body', 'author_name', 'author_mail', 'post', 'created_at']
 
-    def get_body(self, obj):
-        return obj.body.encode('utf-8').decode('unicode-escape')
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        body = instance.body
+
+        body = bytes(body, 'utf-8').decode('unicode-escape')
+
+        data['body'] = body
+
+        return data
 
 
 class CategorySerializer(ModelSerializer):
