@@ -5,7 +5,7 @@ from import_export import resources
 from pyemoji import decode
 
 
-class PostResource(resources.ModelResource):
+""" class PostResource(resources.ModelResource):
 
     class Meta:
         model = Post
@@ -26,7 +26,7 @@ class CommentResource(resources.ModelResource):
         model = Comment
 
 class CommentAdmin(ImportExportModelAdmin):
-    resource_class = CommentResource
+    resource_class = CommentResource """
 
 
 
@@ -42,6 +42,5 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CAdmin)
-admin.site.register(CommentAdmin)
+admin.site.register(Post)
+admin.site.register(Category)
