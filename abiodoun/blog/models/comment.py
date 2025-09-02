@@ -1,8 +1,7 @@
 from django.db import models
 from abiodoun.abstract.models import AbiodounObject
 from .post import Post
-from pyemoji import encode
-
+import base64
 
 class Comment(AbiodounObject):
     body = models.TextField()
@@ -14,5 +13,5 @@ class Comment(AbiodounObject):
         return self.author_name
     
     def save(self, *args, **kwargs):
-        self.body = encode(self.body)
+        self.body = base64.b64encode(self.body.encode('utf-8')).decode('ascii')
         return super().save()

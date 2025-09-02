@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from abiodoun.blog.models import (Post, Comment, Category)
-from pyemoji import decode
+import base64
 
 
 class PostSerializer(ModelSerializer):
@@ -18,7 +18,7 @@ class CommentSerializer(ModelSerializer):
         fields = ['id', 'body', 'author_name', 'author_mail', 'post', 'created_at']
 
     def get_body(self, obj):
-        return obj.body.decode('utf-8')
+        return base64.b64decode(obj.body.encode('ascii')).decode('utf-8')
 
 
 class CategorySerializer(ModelSerializer):

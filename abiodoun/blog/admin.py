@@ -2,7 +2,7 @@ from django.contrib import admin
 from abiodoun.blog.models import (Post, Category, Comment)
 from import_export.admin import ImportExportModelAdmin
 from import_export import resources
-from pyemoji import decode
+import base64
 
 
 """ class PostResource(resources.ModelResource):
@@ -36,7 +36,7 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ("author_name", "author_mail", "body")
 
     def decoded_body(self, obj):
-        return obj.body.decode('utf-8')
+        return base64.b64decode(obj.body.encode('ascii')).decode('utf-8')
 
     decoded_body.short_description = "Commentaire"
 
