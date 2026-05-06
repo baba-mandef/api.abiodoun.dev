@@ -8,8 +8,9 @@ class PostSerializer(ModelSerializer):
         model = Post
         fields = ['id', 'title', 'slug', 'banner', 'post',
                   'en_title', 'en_banner', 'en_post',
-                  'created_at', 'updated_at', 'category',
+                  'created_at', 'updated_at', 'category', 'post_display',
                   'published',]
+        read_only_fields = ["post_display"]
 
 
 class CommentSerializer(ModelSerializer):
