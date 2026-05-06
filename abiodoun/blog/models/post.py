@@ -21,6 +21,13 @@ class Post(AbiodounObject):
     def __str__(self):
         return self.title
     
+    @property
+    def post_display(self):
+        if '\\U' in self.post or '\\u' in self.post:
+            return self.post.encode('utf-8').decode('unicode-escape')
+        return self.post
+    
     def save(self, *args, **kwargs):
-        self.post  = self.post.encode('unicode-escape').decode('utf-8')
-        return super().save()
+        if '\\U' not in self.post and '\\u' not in self.post:
+            self.post = self.post.encode('unicode-escape').decode('utf-8')
+        return super().save(*args, **kwargs)
