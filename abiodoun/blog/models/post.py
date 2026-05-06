@@ -20,3 +20,7 @@ class Post(AbiodounObject):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        self.post  = self.post.encode('unicode-escape').decode('utf-8')
+        return super().save()
