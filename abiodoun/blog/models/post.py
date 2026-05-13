@@ -11,6 +11,8 @@ class Post(AbiodounObject):
     banner = models.ImageField(upload_to='blog/post_banner')
     post = HTMLField()
 
+    excerpt = models.CharField(max_length=255, blank=True)
+
     en_title = models.CharField(max_length=255, blank=True)
     en_banner = models.ImageField(upload_to='blog/post_banner', blank=True)
     en_post = HTMLField(blank=True)
