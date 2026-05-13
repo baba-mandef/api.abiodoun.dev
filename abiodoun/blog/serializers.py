@@ -6,7 +6,7 @@ import base64
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'title', 'slug', 'banner', 'post',
+        fields = ['id', 'title', 'slug', 'banner', 'post', 'excerpt',
                   'en_title', 'en_banner', 'en_post',
                   'created_at', 'updated_at', 'category', 'post_display',
                   'published',]
